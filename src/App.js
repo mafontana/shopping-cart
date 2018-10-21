@@ -4,6 +4,7 @@ import CartHeader from './components/CartHeader.js'
 import CartFooter from './components/CartFooter.js';
 import CartItems from "./components/CartItems.js"
 import CartItemComponent from "./components/CartItemComponent"
+import AddItem from "./components/AddItem"
 
 class App extends Component {
   constructor(props) {
@@ -36,9 +37,10 @@ class App extends Component {
       <div>
         <CartHeader />
         <CartItems cartItemName={this.state.CartItemsList.map((val) => <CartItemComponent cartItemName={val.product.name} />)}
-                   cartItemPrice={this.state.CartItemsList.map((val) => <CartItemComponent cartItemPrice={val.product.priceInCents} />)}
+                   cartItemPrice={this.state.CartItemsList.map((val) => <CartItemComponent cartItemPrice={`$${val.product.priceInCents/Math.pow(10, 2)}`} />)}
                    cartItemQuantity={this.state.CartItemsList.map((val) => <CartItemComponent cartItemQuantity={val.quantity} />)}
         />  
+        <AddItem />
         <CartFooter copyrightYear={this.state.copyrightYear}/>
       </div>
     );
