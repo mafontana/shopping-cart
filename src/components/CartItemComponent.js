@@ -7,11 +7,11 @@ class CartItemComponent extends Component {
         return (
             <div className="collection-item">
             <div className="row">
-                <div className="col-md-8">name</div>
-                <div className="col-md-8">price</div>
-                <div className="col-md-8">quantity</div>
+              <div className="col-md-8">{this.props.cartItemName}</div>
+              <div className="col-md-2">{this.props.cartItemPrice}</div>
+              <div className="col-md-2">{this.props.cartItemQuantity}</div>
             </div>
-            </div>
+          </div>
         )
     }
 
