@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("cart", this.state.CartItemsList[0].product.name)
+    console.log("cart", this.state.CartItemsList[0].product.quantity)
     const CartItemsList = [
       { id: 1, 
         product: { id: 40, name: 'Mediocre Iron Watch', priceInCents: 399 }, 
@@ -37,12 +37,8 @@ class App extends Component {
         <CartHeader />
         <CartItems cartItemName={this.state.CartItemsList.map((val) => <CartItemComponent cartItemName={val.product.name} />)}
                    cartItemPrice={this.state.CartItemsList.map((val) => <CartItemComponent cartItemPrice={val.product.priceInCents} />)}
-                   cartItemQuantity={this.state.CartItemsList.map((val) => <CartItemComponent cartItemQuantity={val.product.quantity} />)}
-        
-        
-        />
-        
-        
+                   cartItemQuantity={this.state.CartItemsList.map((val) => <CartItemComponent cartItemQuantity={val.quantity} />)}
+        />  
         <CartFooter copyrightYear={this.state.copyrightYear}/>
       </div>
     );

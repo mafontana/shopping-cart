@@ -18,7 +18,7 @@ class CartItems extends Component {
                         
 
                     </div>
-                    <CartItemComponent cartItemName={this.props.cartItemName} cartItemPrice={this.props.cartItemPrice} cartItemQuantity={this.props.cartItemPrice}/>
+                    <CartItemComponent cartItemName={this.props.cartItemName} cartItemPrice={this.props.cartItemPrice} cartItemQuantity={this.props.cartItemQuantity}/>
                    
                 </div>
             </div>

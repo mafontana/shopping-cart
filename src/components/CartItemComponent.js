@@ -6,6 +6,7 @@ class CartItemComponent extends Component {
         console.log(this.props)
         return (
             <div className="collection-item">
+            
             <div className="row">
               <div className="col-md-8">{this.props.cartItemName}</div>
               <div className="col-md-2">{this.props.cartItemPrice}</div>
