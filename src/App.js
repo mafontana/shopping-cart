@@ -32,6 +32,28 @@ class App extends Component {
     }
   }
 
+  handleChange = e => {
+    console.log(e.target.value)
+    this.setState({
+        [e.target.name]: e.target.value
+    })
+}
+
+handleSubmit = e => {
+    e.preventDefault();
+    const match = this.state.products.filter(product => this.state.product === product.name)
+    console.log(this.state)
+    let newItem = {
+        id: this.state.CartItemsList.length + 1,
+        product: match[0],
+        quantity: Number(this.state.quantity)
+    }
+    this.setState({
+        CartItemsList: [...this.state.CartItemsList, newItem]
+
+    })
+}
+
   addItem = (id, quantity) => {
       this.setState((prevState) => {
         const state = prevState;
@@ -49,13 +71,11 @@ class App extends Component {
   }
 
   render() {
-  
     return (
       <div>
         <CartHeader />
-        <CartItems cartItemsList={this.state.CartItemsList}
-        />  
-        <AddItem products={this.state.products} addItem={this.addItem} cartItemsList={this.state.CartItemsList}/>
+        <CartItems cartItemsList={this.state.CartItemsList}/>  
+        <AddItem products={this.state.products} addItem={this.addItem} cartItemsList={this.state.CartItemsList} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
         <CartFooter copyrightYear={this.state.copyrightYear}/>
       </div>
     );
