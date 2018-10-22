@@ -13,7 +13,6 @@ class CartItems extends Component {
                             <div className="col-md-8">Product</div>
                             <div className="col-md-2">Price</div>
                             <div className="col-md-2">Quantity</div>
-                        
                         </div>
                     </div>
                     {this.props.cartItemsList.map((cartItem)=> <CartItemComponent
@@ -27,16 +26,10 @@ class CartItems extends Component {
                     total = total + cartItem.product.priceInCents * cartItem.quantity;
                     return total;
                 }, 0)}
-
-                
-                
-                
                 </h2>
-
             </div>
         )
     }
-
 }
 
 export default CartItems;

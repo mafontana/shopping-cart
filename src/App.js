@@ -36,19 +36,16 @@ class App extends Component {
       this.setState((prevState) => {
         const state = prevState;
         const products = state.products;
-
         for (let i=0; i <products.length; i++) {
           const product = products[i];
           if(product.id === id) {
-
             const newItem = {product, quantity};
             state.cartItemsList.push(newItem);
             return state
           }
-
         }
       }
-      )
+    )
   }
 
   render() {
@@ -66,9 +63,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// <CartItems cartItemName={this.state.CartItemsList.map((val) => <CartItemComponent cartItemName={val.product.name} />)}
-// cartItemPrice={this.state.CartItemsList.map((val) => <CartItemComponent cartItemPrice={`$${val.product.priceInCents/Math.pow(10, 2)}`} />)}
-// cartItemQuantity={this.state.CartItemsList.map((val) => <CartItemComponent cartItemQuantity={val.quantity} />)}
-// /> 
