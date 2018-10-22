@@ -26,7 +26,9 @@ class App extends Component {
         { id: 46, name: 'Intelligent Leather Clock', priceInCents: 2999 },
         { id: 47, name: 'Ergonomic Bronze Lamp', priceInCents: 40000 },
         { id: 48, name: 'Awesome Leather Shoes', priceInCents: 3990 },
-      ]
+      ], 
+      product: "",
+      quantity: ""
     }
   }
 
@@ -45,56 +47,18 @@ class App extends Component {
           }
 
         }
-
-
-
       }
       )
-
-
-
-
-
-
   }
 
-// firstFunction () {
-//   var newArr = []
-//   for (let i=0; i<9; i++) {
-//     newArr.push(this.state.product[i].name)
-//     console.log("newArr", newArr)
-
-//   }
-
-// }
-
-// populateOptions(options) {
-//   return options.map((option, index) => (
-//     <option key={index} value={option}>{option}</option>
-//   ));
-// }
-
-
   render() {
-    const CartItemsList = [
-      { id: 1, 
-        product: { id: 40, name: 'Mediocre Iron Watch', priceInCents: 399 }, 
-        quantity: 1 
-      },
-      { id: 2, product: { id: 41, name: 'Heavy Duty Concrete Plate', priceInCents: 499 }, quantity: 2 },
-      { id: 3, product: { id: 42, name: 'Intelligent Paper Knife', priceInCents: 1999 }, quantity: 1 },
-    ]
-
   
-
     return (
       <div>
         <CartHeader />
-        <CartItems cartItemName={this.state.CartItemsList.map((val) => <CartItemComponent cartItemName={val.product.name} />)}
-                   cartItemPrice={this.state.CartItemsList.map((val) => <CartItemComponent cartItemPrice={`$${val.product.priceInCents/Math.pow(10, 2)}`} />)}
-                   cartItemQuantity={this.state.CartItemsList.map((val) => <CartItemComponent cartItemQuantity={val.quantity} />)}
+        <CartItems cartItemsList={this.state.CartItemsList}
         />  
-        <AddItem products={this.state.products} addItem={this.addItem}/>
+        <AddItem products={this.state.products} addItem={this.addItem} cartItemsList={this.state.CartItemsList}/>
         <CartFooter copyrightYear={this.state.copyrightYear}/>
       </div>
     );
@@ -102,3 +66,9 @@ class App extends Component {
 }
 
 export default App;
+
+
+// <CartItems cartItemName={this.state.CartItemsList.map((val) => <CartItemComponent cartItemName={val.product.name} />)}
+// cartItemPrice={this.state.CartItemsList.map((val) => <CartItemComponent cartItemPrice={`$${val.product.priceInCents/Math.pow(10, 2)}`} />)}
+// cartItemQuantity={this.state.CartItemsList.map((val) => <CartItemComponent cartItemQuantity={val.quantity} />)}
+// /> 

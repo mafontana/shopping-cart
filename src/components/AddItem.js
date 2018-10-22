@@ -2,24 +2,26 @@ import React, { Component } from 'react';
 
 
 class AddItem extends Component {
-    state = {};
-
-    onchange = e => {
-        const {name, value} = e.target;
-        this.setState(prevState=> {
-            prevState[name] = value
-            return prevState
+    onChange = e => {
+        console.log(e.target.value)
+        this.setState({
+            [e.target.name]: e.target.value
         })
     }
 
     onSubmit = e => {
         e.preventDefault();
-        let {quantity, product} = this.state;
-        console.log(this.state);
-        if(quantity === undefined || product === undefined || quantity === "" || product === ""){
-            return
+        const match = this.props.products.filter(product => this.state.product === product.name)
+        console.log(this.props)
+        let newItem = {
+            id: this.props.cartItemsList.length + 1,
+            product: match[0],
+            quantity: this.state.quantity
+    
         }
-        this.props.addItem(Number.parseInt(product), quantity);
+        console.log(newItem)
+        this.props.cartItemsList.push(newItem)
+        console.log("new array" , this.props.cartItemsList)
     }
     
     
@@ -36,19 +38,11 @@ class AddItem extends Component {
                     <div className="form-group">
                         <select className="custom-select" name="product" onChange={this.onChange}>
                             <option selected> Open this select menu</option>
-                            {this.props.products.map(product => <option value={product.id}> {product.name}</option>)}
-                        
+                            {this.props.products.map(product => <option> {product.name}</option>)}
                         </select>
-                    
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
-                
-                
-                </form>
-            
-            
-            
-            
+                </form>  
             </div>
             
          

@@ -9,9 +9,9 @@ class CartItemComponent extends Component {
             <div className="list-group">
                     <div className="list-group-item">
                             <div className="row">
-                                <div className="col-md-7">{this.props.cartItemName}</div>
-                                <div className="col-md-3">{this.props.cartItemPrice}</div>
-                                <div className="col-md-2">{this.props.cartItemQuantity}</div>
+                                <div className="col-md-7">{this.props.product}</div>
+                                <div className="col-md-3">{this.props.price}</div>
+                                <div className="col-md-2">{this.props.quantity}</div>
                             </div>
                     
             
